@@ -1,0 +1,21 @@
+
+Make2level --	compile 2level_paging.c
+		make executable file swap
+		print at file test
+
+Makeswap   --	complle 2level_swap.c
+		make executable file level
+		print at file test
+
+myrm       --	remove my Message Queues
+
+test       --	shows result of execution. Check the data and print "wrong" if there
+		is a problem
+
+P4-*.h     --   queueADT belong to queues.h
+
+2level_paging.c	: 2level paging simulator and includes 2level_var.h
+
+2level_swap.c	: simulate swapping with 2level paging and includes 2level_swap_var.h
+
+All code show TTBR value, first level page index, second level page index and the pair between the virtual address and the physical address. if swapping and mapping are additionally required, they also show related information in test.

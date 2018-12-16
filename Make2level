@@ -1,0 +1,5 @@
+rm level
+gcc 2level_paging.c -o level
+rm test
+./myrm
+./level >> test

@@ -1,0 +1,813 @@
+-----------partition------------
+ partiction_type : 0x00001111
+      block_size : 0x00000400
+      inode_size : 0x00000020
+     first_inode : 0x00000002
+      num_inodes : 0x000000e0
+num_inodes_block : 0x00000007
+ num_free_indoes : 0x00000079
+      num_blocks : 0x00000ff8
+ num_free_blocks : 0x00000ff8
+first_data_block : 0x00000008
+     volume_name : Simple_partition_volume
+-----------inode----------------
+            mode : 0x00020777
+          locked : 0x00000000
+            date : 0x00000000
+            size : 0x00000cc0
+  indirect_block : 0x00000000
+        block[0] : 0x0000
+        block[1] : 0x0001
+        block[2] : 0x0002
+        block[3] : 0x0003
+        block[4] : 0x0000
+        block[5] : 0x0000
+-----------datablock------------
+-----------datablock[0]---------
+           inode : 0x00000001
+      dir_length : 0x00000020
+        name_len : 0x00000002
+       file_type : 0x00000001
+       file_name : .
+
+           inode : 0x00000002
+      dir_length : 0x00000020
+        name_len : 0x00000003
+       file_type : 0x00000001
+       file_name : ..
+
+           inode : 0x00000003
+      dir_length : 0x00000020
+        name_len : 0x00000006
+       file_type : 0x00000001
+       file_name : file_1
+
+           inode : 0x00000004
+      dir_length : 0x00000020
+        name_len : 0x00000006
+       file_type : 0x00000001
+       file_name : file_2
+
+           inode : 0x00000005
+      dir_length : 0x00000020
+        name_len : 0x00000006
+       file_type : 0x00000001
+       file_name : file_3
+
+           inode : 0x00000006
+      dir_length : 0x00000020
+        name_len : 0x00000006
+       file_type : 0x00000001
+       file_name : file_4
+
+           inode : 0x00000007
+      dir_length : 0x00000020
+        name_len : 0x00000006
+       file_type : 0x00000001
+       file_name : file_5
+
+           inode : 0x00000008
+      dir_length : 0x00000020
+        name_len : 0x00000006
+       file_type : 0x00000001
+       file_name : file_6
+
+           inode : 0x00000009
+      dir_length : 0x00000020
+        name_len : 0x00000006
+       file_type : 0x00000001
+       file_name : file_7
+
+           inode : 0x0000000a
+      dir_length : 0x00000020
+        name_len : 0x00000006
+       file_type : 0x00000001
+       file_name : file_8
+
+           inode : 0x0000000b
+      dir_length : 0x00000020
+        name_len : 0x00000006
+       file_type : 0x00000001
+       file_name : file_9
+
+           inode : 0x0000000c
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_10
+
+           inode : 0x0000000d
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_11
+
+           inode : 0x0000000e
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_12
+
+           inode : 0x0000000f
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_13
+
+           inode : 0x00000010
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_14
+
+           inode : 0x00000011
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_15
+
+           inode : 0x00000012
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_16
+
+           inode : 0x00000013
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_17
+
+           inode : 0x00000014
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_18
+
+           inode : 0x00000015
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_19
+
+           inode : 0x00000016
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_20
+
+           inode : 0x00000017
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_21
+
+           inode : 0x00000018
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_22
+
+           inode : 0x00000019
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_23
+
+           inode : 0x0000001a
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_24
+
+           inode : 0x0000001b
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_25
+
+           inode : 0x0000001c
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_26
+
+           inode : 0x0000001d
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_27
+
+           inode : 0x0000001e
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_28
+
+           inode : 0x0000001f
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_29
+
+           inode : 0x00000020
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_30
+
+-----------datablock[1]---------
+           inode : 0x00000021
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_31
+
+           inode : 0x00000022
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_32
+
+           inode : 0x00000023
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_33
+
+           inode : 0x00000024
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_34
+
+           inode : 0x00000025
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_35
+
+           inode : 0x00000026
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_36
+
+           inode : 0x00000027
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_37
+
+           inode : 0x00000028
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_38
+
+           inode : 0x00000029
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_39
+
+           inode : 0x0000002a
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_40
+
+           inode : 0x0000002b
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_41
+
+           inode : 0x0000002c
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_42
+
+           inode : 0x0000002d
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_43
+
+           inode : 0x0000002e
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_44
+
+           inode : 0x0000002f
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_45
+
+           inode : 0x00000030
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_46
+
+           inode : 0x00000031
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_47
+
+           inode : 0x00000032
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_48
+
+           inode : 0x00000033
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_49
+
+           inode : 0x00000034
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_50
+
+           inode : 0x00000035
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_51
+
+           inode : 0x00000036
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_52
+
+           inode : 0x00000037
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_53
+
+           inode : 0x00000038
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_54
+
+           inode : 0x00000039
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_55
+
+           inode : 0x0000003a
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_56
+
+           inode : 0x0000003b
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_57
+
+           inode : 0x0000003c
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_58
+
+           inode : 0x0000003d
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_59
+
+           inode : 0x0000003e
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_60
+
+           inode : 0x0000003f
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_61
+
+           inode : 0x00000040
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_62
+
+-----------datablock[2]---------
+           inode : 0x00000041
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_63
+
+           inode : 0x00000042
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_64
+
+           inode : 0x00000043
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_65
+
+           inode : 0x00000044
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_66
+
+           inode : 0x00000045
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_67
+
+           inode : 0x00000046
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_68
+
+           inode : 0x00000047
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_69
+
+           inode : 0x00000048
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_70
+
+           inode : 0x00000049
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_71
+
+           inode : 0x0000004a
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_72
+
+           inode : 0x0000004b
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_73
+
+           inode : 0x0000004c
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_74
+
+           inode : 0x0000004d
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_75
+
+           inode : 0x0000004e
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_76
+
+           inode : 0x0000004f
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_77
+
+           inode : 0x00000050
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_78
+
+           inode : 0x00000051
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_79
+
+           inode : 0x00000052
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_80
+
+           inode : 0x00000053
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_81
+
+           inode : 0x00000054
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_82
+
+           inode : 0x00000055
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_83
+
+           inode : 0x00000056
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_84
+
+           inode : 0x00000057
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_85
+
+           inode : 0x00000058
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_86
+
+           inode : 0x00000059
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_87
+
+           inode : 0x0000005a
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_88
+
+           inode : 0x0000005b
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_89
+
+           inode : 0x0000005c
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_90
+
+           inode : 0x0000005d
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_91
+
+           inode : 0x0000005e
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_92
+
+           inode : 0x0000005f
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_93
+
+           inode : 0x00000060
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_94
+
+-----------datablock[3]---------
+           inode : 0x00000061
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_95
+
+           inode : 0x00000062
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_96
+
+           inode : 0x00000063
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_97
+
+           inode : 0x00000064
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_98
+
+           inode : 0x00000065
+      dir_length : 0x00000020
+        name_len : 0x00000007
+       file_type : 0x00000001
+       file_name : file_99
+
+           inode : 0x00000066
+      dir_length : 0x00000020
+        name_len : 0x00000008
+       file_type : 0x00000001
+       file_name : file_100
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+           inode : 0x00000000
+      dir_length : 0x00000000
+        name_len : 0x00000000
+       file_type : 0x00000000
+       file_name : 
+
+-----------inode----------------
+            mode : 0x00010777
+          locked : 0x00000000
+            date : 0x00000000
+            size : 0x00000025
+  indirect_block : 0xffffffff
+        block[0] : 0x0004
+        block[1] : 0x0000
+        block[2] : 0x0000
+        block[3] : 0x0000
+        block[4] : 0x0000
+        block[5] : 0x0000
+-----------datablock------------
+-----------datablock[0]---------
+-------------------data------------------
+file 1 741474268 913453413 395175819
