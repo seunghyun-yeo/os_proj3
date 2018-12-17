@@ -1,54 +1,6 @@
-/* signal test */
-/* sigaction */
-#include <signal.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <sys/time.h>
-#include <sys/msg.h>
-#include <sys/types.h>
-#include <unistd.h> 
-#include <time.h>
-#include <stdbool.h>
 
+#include "2level_var.h"
 
-#define sec 0
-#define msec 4000
-#define time_quantum 2
-#define maxproc 10
-#define maxcpuburst 4
-#define gendtik 10000
-#define pmemsize 0x40000000
-#define kernelmemsize 0x10000000
-#define l1mask 0xffc00000
-#define l1shift 22
-#define l2shift 12
-#define l2mask 0x003ff000
-#define offsetmask 0xfff
-#define checksc 0b10
-#define checkvalid 0b1
-#define valid 0b1
-#define swapcondition 1048550
-//#define swapcondition 1048500
-
-#include "queues.h"
-#include "2level_swap_var.h"
-int virtualaddress=0;
-int* kernel;
-int* usr;
-int ttbr;
-int offset;
-int l1index;
-int l2index;
-int l2result;
-int l1result;
-int pa;
-queue* hdd;
-double highest=0;
-
-//clock_t start,end;
-struct timeval start,end;
-double operatingtime;
 
 int main()
 {
@@ -146,97 +98,6 @@ int main()
 }
 
 
-void memrequest_handler()
-{
-
-	printf("pid : %d\n",memrequest.pid);
-	for(int k=0; k<10;k++)
-	{
-		if(memrequest.write[k]) printf("write  at : ");
-		else printf("read from : ");
-		printf("%08x",memrequest.va[k]);
-		if(memrequest.write[k]) printf(": %d\n",memrequest.data[k]);
-		else printf("\n");
-	}
-
-	queuenode * ppre=NULL;
-	queuenode * ploc=NULL;
-	pcb * pcbptr;
-	pgfinfo* fpf2;
-	for(ppre=NULL,ploc=rqueue->front;ploc!=NULL;ppre=ploc,ploc=ploc->next)
-	{
-		pcbptr=ploc->dataptr;
-		if(pcbptr->pid==memrequest.pid)
-		{
-			break;
-		}
-	}
-	ttbr = pcbptr->ttbr;
-
-
-	for(int k=0; k<10;k++)
-	{
-
-		printf("-------------------------------------------------\n%d\n",k);
-		offset= memrequest.va[k] & offsetmask;
-		printf("ttbr : 0x%08x \n",ttbr);
-		printf("va : 0x%08x\n",memrequest.va[k]);
-		l1index = (ttbr>>2) + ((memrequest.va[k]&l1mask)>>l1shift);
-		printf("L1 index : %08x\n",l1index);
-		if((usr[l1index]&0b1)==0)
-		{
-			printf("make map between l1 and l2\n");
-			dequeue(fusrqueue,(void**)&fpf);
-			fpf->pid=pcbptr->pid;
-			fpf->va=memrequest.va[k]&l1mask;
-			enqueue(pcbptr->kqueue,fpf);
-			usr[l1index]=fpf->pgfnum;
-			l1result=usr[l1index];
-			usr[l1index]=usr[l1index]|0b1;
-			l2index=(l1result>>2)+((memrequest.va[k]&l2mask)>>l2shift);
-		}
-		else
-		{
-			l1result=usr[l1index];
-			l2index=(l1result>>2)+((memrequest.va[k]&l2mask)>>l2shift);
-		}
-		printf("L2 index : %d\n",l2index);
-		if((usr[l2index]&0b1)==0)
-		{
-			printf("make map between l2 and page frame\n");
-				dequeue(fusrqueue,(void**)&fpf);
-				fpf->pid=pcbptr->pid;
-				fpf->va=memrequest.va[k]&(l1mask|l2mask);
-				fpf->motherptr=l2index;
-				enqueue(pcbptr->uqueue,fpf);
-				usr[l2index]=fpf->pgfnum;
-				l2result=usr[l2index];
-				usr[l2index]=usr[l2index]|0x3;
-			printf("L2 index : %d : 0x%08x\n",l2index,l2result);
-		}
-		else
-		{
-			usr[l2index]=usr[l2index]|0x2;
-			l2result=usr[l2index];
-			l2result=l2result&(l1mask|l2mask);
-		}
-		pa=l2result|offset;
-		printf("va : 0x%08x  pa : 0x%08x\n",memrequest.va[k],pa);
-		if(memrequest.write[k])
-		{
-			printf("write data : %d at 0x%08x\n",memrequest.data[k],pa);
-			usr[pa/4]=memrequest.data[k];
-		}
-		else
-		{
-			if(memrequest.data[k-5]!=usr[pa/4]) printf("wrong\n");
-			printf("load data : %d from 0x%08x\n",usr[pa/4],pa);
-		}
-	}
-
-
-
-}
 
 
 void child_handler(int signo)
@@ -268,40 +129,5 @@ void child_handler(int signo)
 		return;
 	}
 
-}
-
-void adjustqueue(queue * queue, int va)
-{
-	queuenode* ppre;
-	queuenode* ploc;
-	pgfinfo * fpf;
-	if(queue->count==0) return;
-	for(ppre=NULL, ploc=queue->front;ploc!=NULL;ppre=ploc,ploc=ploc->next)
-	{
-		fpf=ploc->dataptr;
-		if(fpf->va==va)
-		{
-			break;
-		}
-	}
-	if(ploc==queue->rear) return;
-	if(ppre!=NULL)
-	{
-		printf("in when ppre is not NULL\n");
-		ppre->next=ploc->next;
-		ploc->next=NULL;
-		if(queue->rear==NULL)printf("err\n");
-		queue->rear->next=ploc;
-		queue->rear=ploc;
-	}
-	else
-	{
-		printf("in when ppre is NULL\n");
-		queue->front=ploc->next;
-		queue->rear->next=ploc;
-		ploc->next=NULL;
-		queue->rear=ploc;
-	}
-	printf("adjustqueue end");
 }
 
