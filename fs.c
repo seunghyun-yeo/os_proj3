@@ -198,7 +198,7 @@ int myfopen_handler(pid_t lpid, char* path)
 	bool find =0;
 	int i=0;
 	dentry=ddentry;
-	for(i=0;i<(strlen(dentry));i=i+32)
+	for(i=0;i<0xcc0;i=i+32)
 	{
 		printf("%s\n",path);
 		for(int j=0;j<strlen(path);j++)
@@ -206,9 +206,9 @@ int myfopen_handler(pid_t lpid, char* path)
 			printf("%c",dentry[i+j+16]);
 		}
 		printf("\n");
-		if(strncmp(path,dentry[i+16],strlen(path))==0)
+		if((strncmp(path,(dentry+i+16),strlen(path)))==0)
 		{
-			find=1;
+		find=1;
 			break;
 		}
 	}
@@ -226,7 +226,7 @@ int myfopen_handler(pid_t lpid, char* path)
 		exit(EXIT_FAILURE);
 	}
 }
-int checkmapping(int ptr,int pid,pcb** pcbloc ,int* pa,int* al1index,int* al2index)
+int checkmapping(int ptr,int tpid,pcb** pcbloc ,int* pa,int* al1index,int* al2index)
 {
 	queuenode * ppre=NULL;
 	queuenode * ploc=NULL;
@@ -235,9 +235,12 @@ int checkmapping(int ptr,int pid,pcb** pcbloc ,int* pa,int* al1index,int* al2ind
 	for(ppre=NULL,ploc=rqueue->front;ploc!=NULL;ppre=ploc,ploc=ploc->next)
 	{
 		pcbptr=ploc->dataptr;
-		if(pcbptr->pid==pid)
+		printf("pcbpid :%x\n",pcbptr->pid);
+		printf("tpid :%x\n",tpid);
+		if(pcbptr->pid==tpid)
 		{
 			*pcbloc=pcbptr;
+			printf("pcbloc : %x\n",*pcbloc);
 			break;
 		}
 	}
@@ -287,6 +290,7 @@ void l1mapl2(int ptr,int pid, pcb* pcbloc,int* pa, int al1index)
 {
 	pcb* lpcbptr=pcbloc;
 	dequeue(fusrqueue,(void**)&fpf);
+	printf("%x\n",fpf);
 	fpf->pid=lpcbptr->pid;
 	fpf->va=ptr&l1mask;
 	enqueue(lpcbptr->kqueue,fpf);
@@ -316,6 +320,7 @@ int myfread_handler()
 	lhowmanyblock=showinode(inodenum,ldatablock);
 	if((mappingcheck=checkmapping(ptr,msgfread.pid,&pcbloc,&pa,&al1index,&al2index))!=0)
 	{
+		printf("%x\n",pcbloc);
 		if(mappingcheck==1)
 		{
 			l1mapl2(ptr,pid,pcbloc,&pa,al1index);
@@ -373,15 +378,21 @@ int main()
 			dio_time =7;//rand()%6;
 			cpu_time=dcpu_time;
 			msg.mtype=1;
+			pid=getpid();
 			msg.pid=getpid();
 			msg.io_time=dio_time;
 			new_sa.sa_handler = &child_handler;
 			sigaction(SIGUSR1,&new_sa,&old_sa);
 			myfopen("file_1","rb");
+			printf("here1\n");
 			ret=msgrcv(msgq,&msgfopen,sizeof(fopenmsg),pid,NULL);
+			printf("here2\n");
 			myfread(0x00000400,1024,1,msgfopen.inodenum);
+			printf("here3\n");
 			ret=msgrcv(msgq,&msgfread,sizeof(freadmsg),pid,NULL);
+			printf("here4\n");
 			//printf("%s",);
+			exit(0);
 			while(1);
 		}
 		else if(pid>0)
