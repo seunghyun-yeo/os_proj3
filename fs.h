@@ -93,6 +93,6 @@ typedef struct{
 		unsigned char name[255];
 		unsigned char n_pad[16][16];
 	};
-}dentry;
+}fsdentry;
 
 
