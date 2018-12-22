@@ -17,7 +17,7 @@
 #define time_quantum 2
 #define maxproc 1
 #define maxcpuburst 4
-#define gendtik 10000
+#define gendtik 200
 #define pmemsize 0x40000000
 #define kernelmemsize 0x10000000
 #define l1mask 0xffc00000
@@ -210,14 +210,20 @@ void searchqueue(queue* targetqueue, queuenode **ppre ,queuenode **pploc, int io
 			break;
 	}
 }
-
+void overthanos()
+{
+		for(int i=0;i<maxproc;i++)
+		{
+			kill(gpid[i],SIGKILL);
+		}
+}
 
 void signal_handler(int signo)
 {
-	/*
+	
 	globaltik++;
 	pcb *pcbptr = NULL;
-	queuenode * ppre;
+	/*queuenode * ppre;
 	printf("================================================\nat %d\n\n",globaltik);
 	printf("ready queue : ");
 	for(ppre=rqueue->front;ppre!=NULL;ppre=ppre->next){
@@ -240,15 +246,13 @@ void signal_handler(int signo)
 		pcbptr=ppre->dataptr;
 		printf("\t%d",pcbptr->io_time);
 	}
-	printf("\n");
+	printf("\n");*/
 	if(globaltik==gendtik)
 	{
-		for(int i=0;i<maxproc;i++)
-		{
-			kill(gpid[i],SIGKILL);
-		}
+		overthanos();
 		exit(0);
 	}
+	/*
 	if(!emptyqueue(ioqueue))
 	{
 		reduceall();
@@ -283,19 +287,20 @@ void signal_handler(int signo)
 			}
 		}
 	}
+	*/
 	if(!emptyqueue(rqueue))
 	{
 		queuefront(rqueue,(void**)&pcbptr);
-		pcbptr->tq--;
-		pcbptr->cpu_time++;
+	//	pcbptr->tq--;
+	//	pcbptr->cpu_time++;
 		kill(pcbptr->pid,SIGUSR1);
-		if(pcbptr->tq==0)
-		{
-			pcbptr->tq=time_quantum;
-			if(queuecount(rqueue)>1)requeue(rqueue);
-		}
+	//	if(pcbptr->tq==0)
+	//	{
+	//		pcbptr->tq=time_quantum;
+	//		if(queuecount(rqueue)>1)requeue(rqueue);
+	//	}
 	}
-*/
+
 }
 void memrequest_handler()
 {
@@ -383,10 +388,4 @@ void memrequest_handler()
 	}
 }
 
-void overthanos()
-{
-		for(int i=0;i<maxproc;i++)
-		{
-			kill(gpid[i],SIGKILL);
-		}
-}
+
