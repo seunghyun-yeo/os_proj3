@@ -414,6 +414,7 @@ void child_handler(int signo)
 {
 	char *filename=(char*)malloc(9);
 	sprintf(filename,"file_%d",child_global_file);
+	child_global_file++;
 	myfopen(filename,"rb");
 	ret=msgrcv(msgq,&msgfopen,sizeof(fopenmsg),pid,NULL);
 	int * stream = (int*)malloc(sizeof (int));
